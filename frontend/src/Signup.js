@@ -8,6 +8,7 @@ function Signup() {
   const [password, setPassword] = useState("");
 
   const handleSignup = async () => {
+    e.preventDefault();
     try {
       await axios.post("https://auth-project-wkwn.onrender.com/auth/signup", {
         name,
