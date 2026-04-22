@@ -7,7 +7,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post("https://auth-project-wkwn.onrender.com/auth/login", {
