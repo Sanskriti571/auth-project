@@ -1,8 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +20,7 @@ function Signup() {
       });
 
       alert("User Registered Successfully");
-      window.location.href = "/";
+      navigate("/");
     } catch (err) {
       alert("Error creating user");
     }
@@ -28,28 +31,13 @@ function Signup() {
       <div className="card">
         <h2>Signup</h2>
 
-        <input
-          placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <input
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <input placeholder="Name" onChange={(e) => setName(e.target.value)} />
+        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
 
         <button type="button" onClick={handleSignup}>Signup</button>
 
-        <span
-          className="link"
-          onClick={() => (window.location.href = "/")}
-        >
+        <span className="link" onClick={() => navigate("/")}>
           Already have an account?
         </span>
       </div>
