@@ -44,7 +44,7 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button onClick={handleSignup}>Signup</button>
+        <button type="button" onClick={handleSignup}>Signup</button>
 
         <span
           className="link"

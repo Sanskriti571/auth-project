@@ -40,7 +40,7 @@ function Login() {
 
         {error && <p className="error">{error}</p>}
 
-        <button onClick={handleLogin}>Login</button>
+        <button type ="button" onClick={handleLogin}>Login</button>
 
         <span
           className="link"
