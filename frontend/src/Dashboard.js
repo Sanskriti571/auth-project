@@ -1,37 +1,9 @@
-// import "./App.css";
-
-// function Dashboard() {
-//   const token = localStorage.getItem("token");
-
-//   if (!token) {
-//     return <h1 style={{ color: "white", textAlign: "center" }}>Please Login First</h1>;
-//   }
-
-//   return (
-//     <div className="container">
-//       <div className="card">
-//         <h1>Welcome 🎉</h1>
-//         <p>You are successfully logged in</p>
-
-//         <button
-//           onClick={() => {
-//             localStorage.removeItem("token");
-//             window.location.href = "/";
-//           }}
-//         >
-//           Logout
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 function Dashboard() {
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
 
@@ -40,6 +12,7 @@ function Dashboard() {
     setUser(storedUser);
   }, []);
 
+  // 🔐 Protect route
   if (!token) {
     return (
       <h1 style={{ color: "white", textAlign: "center" }}>
@@ -53,7 +26,7 @@ function Dashboard() {
       <div className="card">
         <h1>Welcome 🎉</h1>
 
-        {/* ✅ NEW PART */}
+        {/* ✅ User Info */}
         {user && (
           <>
             <h3>Welcome, {user.name} 👋</h3>
@@ -61,13 +34,22 @@ function Dashboard() {
           </>
         )}
 
-        {/* old content still there */}
         <p>You are successfully logged in</p>
 
+        {/* ✅ Navigation buttons */}
+        <button onClick={() => navigate("/add")}>
+          Report Item
+        </button>
+
+        <button onClick={() => navigate("/items")}>
+          View Items
+        </button>
+
+        {/* ✅ Logout */}
         <button
           onClick={() => {
-            localStorage.clear(); // better than removeItem
-            window.location.href = "/";
+            localStorage.clear();
+            navigate("/");
           }}
         >
           Logout
