@@ -24,9 +24,9 @@ function Dashboard() {
   return (
     <div className="container">
       <div className="card">
-        <h1>Welcome 🎉</h1>
+        <h1>Hey!</h1>
 
-        {/* ✅ User Info */}
+        {/*  User Info */}
         {user && (
           <>
             <h3>Welcome, {user.name} 👋</h3>
@@ -36,16 +36,16 @@ function Dashboard() {
 
         <p>You are successfully logged in</p>
 
-        {/* ✅ Navigation buttons */}
+        {/* Navigation buttons */}
         <button onClick={() => navigate("/add")}>
           Report Item
         </button>
-
+        <br></br>
         <button onClick={() => navigate("/items")}>
-          View Items
+          View/Search/Update/Delete Items
         </button>
-
-        {/* ✅ Logout */}
+        <br></br>
+        {/* Logout */}
         <button
           onClick={() => {
             localStorage.clear();
