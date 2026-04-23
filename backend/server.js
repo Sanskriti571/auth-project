@@ -12,5 +12,7 @@ mongoose.connect(process.env.MONGO_URL)
 .catch(err => console.log(err));
 
 app.use("/auth", require("./routes/auth"));
+const itemRoutes = require("./routes/item");
+app.use("/items", itemRoutes);
 
 app.listen(5000, () => console.log("Server running on 5000"));
